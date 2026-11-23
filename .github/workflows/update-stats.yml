@@ -1,4 +1,4 @@
-name: Update Top Languages SVG
+name: Update GitHub Profile SVGs
 
 on:
   schedule:
@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - "scripts/generate_top_langs.py"
+      - "scripts/generate_github_stats.py"
       - ".github/workflows/update-stats.yml"
 
 permissions:
@@ -26,17 +27,19 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Generate Top Languages SVG (User + Organizations)
+      - name: Generate GitHub Stats & Top Languages SVGs (User + Organizations)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 scripts/generate_top_langs.py
+        run: |
+          python3 scripts/generate_github_stats.py
+          python3 scripts/generate_top_langs.py
 
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/top-langs.svg
+          git add assets/github-stats.svg assets/top-langs.svg
           if ! git diff --cached --quiet; then
-            git commit -m "chore: update top-langs.svg including organizations"
+            git commit -m "chore: update profile stats SVGs including organizations"
             git push
           fi

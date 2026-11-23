@@ -59,7 +59,7 @@ No dia a dia, divido minha rotina entre o desenvolvimento de APIs em **.NET** co
 ### 📈 GitHub Stats
 
 <div align="center">
-  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=Diniz-Bruno&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true" alt="Bruno Diniz GitHub Stats" />
+  <img height="180em" src="./assets/github-stats.svg" alt="Bruno Diniz GitHub Stats" />
   <img height="180em" src="./assets/top-langs.svg" alt="Most Used Languages" />
 </div>
 
